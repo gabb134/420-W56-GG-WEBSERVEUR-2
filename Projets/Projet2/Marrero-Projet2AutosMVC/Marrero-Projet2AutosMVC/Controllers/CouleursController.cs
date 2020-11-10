@@ -140,9 +140,9 @@ namespace Marrero_Projet2AutosMVC.Controllers
         {
             var couleur = await _context.Couleurs.FindAsync(id);
 
-            foreach(Couleur coul in _context.Couleurs)
+            foreach(Auto auto in _context.Autos)
             {
-                if(coul.CouleurId == id)
+                if(auto.CouleurId == id)
                     return View("~/Views/Shared/Error.cshtml");
             }
 
