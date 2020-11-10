@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Marrero_Projet2AutosMVC.Models.Auto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create">Ajouter une auto</a>
+</p>
+<div class="container-fluid">
+    <div class="row d-inline-flex">
+        @foreach (var item in Model)
+        {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
+            <div class="card m-3" style="min-width: 16rem; max-width: 20%">
+
+                <div class=" card-body-header" > <h4 style="font-size: 130% "> Identificateur : @item.nom@item.Couleur.Nom.Substring(0, 1)@item.AutoId  </h4> </div>
+
+                <img class="card-img-top imageThumbnail" style="max-width:100%;  max-height : 50%;" src="@Url.Content("~/images/"+item.nom +item.Couleur.Nom.Substring(0,1)+".png")" alt="Card image">
+                <div class="card-footer">
+                    <h4 style="font-size: 130% ">Marque : @item.Marque.Nom </h4>
+                    <h4 class="card-title"style="font-size: 130% "> Modèle : @item.Modele </h4>
+                    <p class="card-text" style="font-size: 130% ">Couleur : @item.Couleur.Nom</p>
+                    <a asp-action="Edit" asp-route-id="@item.AutoId" class="btn btn-success m-0">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.AutoId" class="btn btn-primary m-0">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.AutoId" class="btn btn-danger m-0">Delete</a>
+
+                </div>
+            </div>
+         
+        </div>
+        }
+
+    </div>
+
+</div>
+
+<!--<table class="table">
+    <thead>
+        <tr>
+            <th>
+               @* @Html.DisplayNameFor(model => model.nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modele)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Couleur)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modele)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marque.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Couleur.Nom)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AutoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AutoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AutoId">Delete</a> *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>-->
