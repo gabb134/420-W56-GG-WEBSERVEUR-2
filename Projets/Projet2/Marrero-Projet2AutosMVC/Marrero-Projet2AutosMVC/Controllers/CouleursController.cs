@@ -139,6 +139,13 @@ namespace Marrero_Projet2AutosMVC.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var couleur = await _context.Couleurs.FindAsync(id);
+
+            foreach(Couleur coul in _context.Couleurs)
+            {
+                if(coul.CouleurId == id)
+                    return View("~/Views/Shared/Error.cshtml");
+            }
+
             _context.Couleurs.Remove(couleur);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

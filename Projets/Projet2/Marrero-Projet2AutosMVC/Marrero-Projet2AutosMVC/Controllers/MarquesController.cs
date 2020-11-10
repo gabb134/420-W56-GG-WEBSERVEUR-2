@@ -139,6 +139,13 @@ namespace Marrero_Projet2AutosMVC.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var marque = await _context.Marques.FindAsync(id);
+
+            foreach(Auto auto in _context.Autos)
+            {
+                if(auto.MarqueId==id)
+                    return View("~/Views/Shared/Error.cshtml");
+            }
+
             _context.Marques.Remove(marque);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
