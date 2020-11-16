@@ -1,0 +1,36 @@
+﻿@page
+@model Marrero_Projet2RazorApp.Pages.Couleurs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Couleur[0].Nom)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Couleur) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CouleurId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CouleurId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CouleurId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

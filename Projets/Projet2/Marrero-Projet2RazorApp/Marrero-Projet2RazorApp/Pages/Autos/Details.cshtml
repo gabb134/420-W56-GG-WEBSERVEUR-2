@@ -1,0 +1,53 @@
+﻿@page
+@model Marrero_Projet2RazorApp.Pages.Autos.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Auto</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Auto.nom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Auto.nom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Auto.Modele)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Auto.Modele)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Auto.Marque)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Auto.Marque.Nom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Auto.Couleur)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Auto.Couleur.Nom)
+        </dd>
+    </dl>
+    <div class=" card-body-header"> <h4> Identificateur :  @Model.Auto.nom@Model.Auto.Couleur.Nom.Substring(0, 1)@Model.Auto.AutoId   </h4> </div>
+
+    <img class="card-img-top imageThumbnail" style="max-width: 70%;  max-height : 100%;" src="@Url.Content("~/Images/"+@Model.Auto.nom +@Model.Auto.Couleur.Nom.Substring(0,1)+".png")" alt="Card image">
+    <div class="card-footer">
+        <h4>Marque : @Model.Auto.Marque.Nom </h4>
+        <h4 class="card-title"> Modèle : @Model.Auto.Modele </h4>
+        <p class="card-text">Couleur : @Model.Auto.Couleur.Nom</p>
+        <a asp-page="./Edit" asp-route-id="@Model.Auto.AutoId" class="btn btn-success m-1">Edit</a> |
+        <a asp-page="./Index" class="btn btn-primary m-1">Back to List</a>
+
+        
+
+    </div>
+</div>
+
