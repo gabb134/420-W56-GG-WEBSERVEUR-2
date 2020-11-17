@@ -5,7 +5,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Détails</h1>
 
 <div>
     <h4>Auto</h4>
@@ -43,8 +43,8 @@
         <h4>Marque : @Model.Auto.Marque.Nom </h4>
         <h4 class="card-title"> Modèle : @Model.Auto.Modele </h4>
         <p class="card-text">Couleur : @Model.Auto.Couleur.Nom</p>
-        <a asp-page="./Edit" asp-route-id="@Model.Auto.AutoId" class="btn btn-success m-1">Edit</a> |
-        <a asp-page="./Index" class="btn btn-primary m-1">Back to List</a>
+        <a asp-page="./Edit" asp-route-id="@Model.Auto.AutoId" class="btn btn-success m-1">Modifier</a> |
+        <a asp-page="./Index" class="btn btn-primary m-1">Retour à la liste</a>
 
         
 

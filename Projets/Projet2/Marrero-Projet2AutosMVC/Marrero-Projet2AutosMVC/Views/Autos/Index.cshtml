@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<br />
 <p>
     <a asp-action="Create">Ajouter une auto</a>
 </p>
@@ -15,7 +15,7 @@
                 @foreach (var item in Model)
                 {
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                        <div class="card m-3" style="min-width: 16rem; max-width: 20%">
+                        <div class="card m-3" style="min-width: 18rem; max-width: 20%">
 
                             <div class=" card-body-header"> <h4 style="font-size: 130% "> Identificateur : @item.nom@item.Couleur.Nom.Substring(0, 1)@item.AutoId  </h4> </div>
 
@@ -24,9 +24,9 @@
                                 <h4 style="font-size: 130% ">Marque : @item.Marque.Nom </h4>
                                 <h4 class="card-title" style="font-size: 130% "> Modèle : @item.Modele </h4>
                                 <p class="card-text" style="font-size: 130% ">Couleur : @item.Couleur.Nom</p>
-                                <a asp-action="Edit" asp-route-id="@item.AutoId" class="btn btn-success m-0">Edit</a>
-                                <a asp-action="Details" asp-route-id="@item.AutoId" class="btn btn-primary m-0">Details</a>
-                                <a asp-action="Delete" asp-route-id="@item.AutoId" class="btn btn-danger m-0">Delete</a>
+                                <a asp-action="Edit" asp-route-id="@item.AutoId" class="btn btn-success m-0" style="font-size: 85% ">Modifier</a>
+                                <a asp-action="Details" asp-route-id="@item.AutoId" class="btn btn-primary m-0" style="font-size: 85% ">Détails</a>
+                                <a asp-action="Delete" asp-route-id="@item.AutoId" class="btn btn-danger m-0" style="font-size: 85% ">Supprimer</a>
 
                             </div>
                         </div>
